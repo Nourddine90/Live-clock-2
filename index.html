@@ -1,0 +1,63 @@
+الملف الثاني :
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Live Earth Clock</title>
+<style>
+    body {
+        margin: 0;
+        background: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Arial', sans-serif;
+        flex-direction: column;
+    }
+    h1 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #00ffcc;
+    }
+    #clock {
+        font-size: 48px;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+    #date {
+        font-size: 20px;
+        margin-top: 10px;
+        color: #aaa;
+    }
+</style>
+</head>
+<body>
+    <h1>🌍 Live Earth Clock</h1>
+    <div id="clock">00:00:00</div>
+    <div id="date">Jan 1, 2026</div>
+
+<script>
+function updateClock() {
+    const now = new Date();
+    
+    // Time
+    let h = String(now.getUTCHours()).padStart(2, '0');
+    let m = String(now.getUTCMinutes()).padStart(2, '0');
+    let s = String(now.getUTCSeconds()).padStart(2, '0');
+    document.getElementById('clock').textContent = `${h}:${m}:${s} UTC`;
+
+    // Date
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    document.getElementById('date').textContent = now.toUTCString().split(' ').slice(1,4).join(' ');
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+<!-- كود Adsterra Social Bar -->
+<script src="https://pl29459637.effectivecpmnetwork.com/37/58/01/375801f129be9d21a454cd71a0e2f3d3.js"></script>
+</body>
+</html>
